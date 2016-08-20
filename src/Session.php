@@ -17,8 +17,8 @@ class Session
 
     public function __construct($name, StorageInterface $storage)
     {
+        $this->name = $name;
         $this->storage = $storage;
-
         $this->setVariables($this->storage->get($this->name));
 
     }
