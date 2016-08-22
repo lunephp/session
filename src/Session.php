@@ -20,9 +20,12 @@ class Session
         $this->name = $name;
         $this->storage = $storage;
         $this->setVariables($this->storage->get($this->name));
-
     }
-
+    
+    public function __destruct()
+    {
+        $this->storage->set($this->name, $this->getVariables()->all());
+    }
 
     public function clear()
     {
