@@ -17,7 +17,7 @@ $sessions = new \Lune\Session\Manager();
 $sessions->get('my-session')->set('foo', 'bar');
 
 //add multiple values to the session
-$sessions->get('my-sesison')->set(['foo2' => 'bar2']);
+$sessions->get('my-session')->set(['foo2' => 'bar2']);
 
 //retrieve a value from the session
 $v = $sessions->get('my-session')->get('foo'); // returns 'bar'
