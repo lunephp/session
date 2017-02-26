@@ -5,9 +5,8 @@ namespace Lune\Session;
 
 
 use Lune\Variables\HasVariablesTrait;
-use Lune\Variables\VariableBag;
 
-class Session
+class Session implements SessionInterface
 {
     use HasVariablesTrait;
     private $name;
