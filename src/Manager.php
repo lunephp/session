@@ -12,6 +12,7 @@ class Manager
     private $storage;
 
     private $sessions = [];
+    private $flash = [];
 
     public function __construct(StorageInterface $storage = null)
     {
@@ -26,7 +27,16 @@ class Manager
         return $this->sessions[$name];
     }
 
-    public function clear($name){
+    public function getFlash($name = '_flash'):Flash
+    {
+        if (!array_key_exists($name, $this->flash)) {
+            $this->flash[$name] = new Flash($this, $name);
+        }
+        return $this->flash[$name];
+    }
+
+    public function clear($name)
+    {
         $this->storage->clear($name);
         if (!array_key_exists($name, $this->sessions)) {
             unset($this->sessions[$name]);
